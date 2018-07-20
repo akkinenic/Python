@@ -23,7 +23,7 @@ def permute_helper(str,chosen=""):
 def permute(str):
     permute_helper(str)
 
-print(permute("catdog"))
+#print(permute("catdog"))
 
 #method 2
 
@@ -44,7 +44,7 @@ def permutations(word):
     return result
 
 
-print(permutations( "catdog" ))
+#print(permutations( "catdog" ))
 
 """
 P-1.30 Write a Python program that can take a positive integer greater than 2 as
@@ -52,3 +52,18 @@ input and write out the number of times one must repeatedly divide this
 number by 2 before getting a value less than 2.
 """
 
+
+def count_divby2(val):
+    count = 0
+    if val == 2:
+        return 1
+
+    if val < 2:
+        return 0
+
+    while val >= 2:
+        val = val//2
+        count +=1
+    return count
+
+print(count_divby2(9))
