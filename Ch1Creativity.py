@@ -110,3 +110,109 @@ def compute():
 
 print(compute())
 
+
+#19 Demonstrate how to use Python’s list comprehension syntax to produce
+#the list [ a , b , c , ..., z ], but without having to type all 26 such
+# characters literally.
+
+list=[chr(i) for i in range(97,123)] #instead of passing 97,123 - we can pass ord('a'), ord('z')+1
+print(list)
+
+#20 Python’s random module includes a function shuffle(data) that accepts a
+#list of elements and randomly reorders the elements so that each possible
+#order occurs with equal probability. The random module includes a
+#more basic function randint(a, b) that returns a uniformly random integer
+#from a to b (including both endpoints). Using only the randint function,
+#implement your own version of the shuffle function.
+
+
+def myShuffle(data):
+    from random import randint
+    m = randint(0,len(data)-1)
+    n = randint(0,len(data)-1)
+    data[m],data[n] = data[n], data[m]
+    return data
+
+
+print(myShuffle([1,2,3]))
+
+
+
+#21 Write a Python program that repeatedly reads lines from standard input
+#until an EOFError is raised, and then outputs those lines in reverse order
+#(a user can indicate end of input by typing ctrl-D).
+
+newList = []
+print("ENTER LINES. END OF FILE WITH CTRL+D")
+try:
+    while True:
+        newList.append(input())
+except EOFError:
+    print("END OF FILE")
+    newList.reverse()
+    for i in newList:
+        print(i)
+
+
+#22 Write a short Python program that takes two arrays a and b of length n
+#storing int values, and returns the dot product of a and b. That is, it returns
+#an array c of length n such that c[i] = a[i] · b[i], for i = 0, . . . ,n−1.
+
+
+def dot_product(a,b):
+    assert len(a) == len(b)
+    output = [a[i]*b[i] for i in range(len(a))]
+    return output
+
+
+a=[1,2,3,4]
+b=[5,6,7,8]
+print(dot_product(a,b))
+
+#C-1.23 Give an example of a Python code fragment that attempts to write an element
+#to a list based on an index that may be out of bounds. If that index
+#is out of bounds, the program should catch the exception that results, and
+#print the following error message:
+#“Don’t try buffer overflow attacks in Python!”
+
+
+try:
+    a = [1,2,3]
+    for i in range(len(a)+1):
+        a[i] = 2
+except IndexError:
+    print('"Don’t try buffer overflow attacks in Python!"')
+
+
+#C-1.24 Write a short Python function that counts the number of vowels in a given
+#character string.
+
+
+def count_vowels(input):
+    list = ['a','e','i','o','u']
+    count = 0;
+    for i in input:
+        if list.__contains__(i):
+            count +=1
+    return count
+
+
+print(count_vowels("standard"))
+
+
+#C-1.25 Write a short Python function that takes a string s, representing a sentence,
+#and returns a copy of the string with all punctuation removed. For example,
+#if given the string "Let s try, Mike.", this function would return
+#"Lets try Mike".
+
+
+def remove_punctuation(string):
+    outputstring = str()
+    for a in string:
+        if a.isalpha() or a == ' ':
+            outputstring +=a
+    return outputstring
+
+
+print(remove_punctuation("Let s try, Mike."))
+
