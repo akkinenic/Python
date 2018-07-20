@@ -1,7 +1,7 @@
-#13 Write a pseudo-code description of a function that reverses a list of n
-#integers, so that the numbers are listed in the opposite order than they
-#were before, and compare this method to an equivalent Python function
-#for doing the same thing.
+""" 13 Write a pseudo-code description of a function that reverses a list of n
+integers, so that the numbers are listed in the opposite order than they
+were before, and compare this method to an equivalent Python function
+for doing the same thing. """
 
 
 def reversee(data):
@@ -17,9 +17,9 @@ print(reverseList([1,2,3,4,5]))
 print(reversee([1,2,3,4,5]))
 
 
-#14 Write a short Python function that takes a sequence of integer values and
-# determines if there is a distinct pair of numbers in the sequence whose
-# product is odd.
+""" 14 Write a short Python function that takes a sequence of integer values and
+ determines if there is a distinct pair of numbers in the sequence whose
+ product is odd. """
 
 
 def distinctPair(data):    #A product of two numbers will be odd both of the numbers are odd
@@ -35,8 +35,8 @@ def distinctPair(data):    #A product of two numbers will be odd both of the num
 
 print(distinctPair([1,1,2,3,5,6]))
 
-#15 Write a Python function that takes a sequence of numbers and determines
-# if all the numbers are different from each other (that is, they are distinct).
+""" 15 Write a Python function that takes a sequence of numbers and determines
+ if all the numbers are different from each other (that is, they are distinct). """
 
 
 def distinctNums(data):
@@ -56,12 +56,12 @@ def is_distinct(data):
     return True if list == set else False
 
 
-#16 1.16 In our implementation of the scale function (page 25), the body of the loop
-#executes the command data[j] = factor. We have discussed that numeric
-#types are immutable, and that use of the = operator in this context causes
-#the creation of a new instance (not the mutation of an existing instance).
-#How is it still possible, then, that our implementation of scale changes the
-#actual parameter sent by the caller?
+""" 16 1.16 In our implementation of the scale function (page 25), the body of the loop
+executes the command data[j] = factor. We have discussed that numeric
+types are immutable, and that use of the = operator in this context causes
+the creation of a new instance (not the mutation of an existing instance).
+How is it still possible, then, that our implementation of scale changes the
+actual parameter sent by the caller? """
 
 #def scale(data, factor):
 #for j in range(len(data)):
@@ -72,20 +72,20 @@ def is_distinct(data):
 #Hence, when we make scale changes, the actual list value gets changed making our scale function work properly.
 
 
-#17 Had we implemented the scale function (page 25) as follows, does it work
-#properly?
-#def scale(data, factor):
-#for val in data:
-#val = factor
-#Explain why or why not.
+""" 17 Had we implemented the scale function (page 25) as follows, does it work
+ properly?
+def scale(data, factor):
+for val in data:
+val = factor
+Explain why or why not. """
 
 
 #Answer - It will not work properly. This is because val is not an alias to the actual data value.
 #This assignment simply creates a new val object
 
 
-#18 Demonstrate how to use Python’s list comprehension syntax to produce
-# the list [0, 2, 6, 12, 20, 30, 42, 56, 72, 90].
+""" 18 Demonstrate how to use Python’s list comprehension syntax to produce
+ the list [0, 2, 6, 12, 20, 30, 42, 56, 72, 90]."""
 
 list = [i*(i+1) for i in range(10)]
 
@@ -111,19 +111,19 @@ def compute():
 print(compute())
 
 
-#19 Demonstrate how to use Python’s list comprehension syntax to produce
-#the list [ a , b , c , ..., z ], but without having to type all 26 such
-# characters literally.
+""" 19 Demonstrate how to use Python’s list comprehension syntax to produce
+the list [ a , b , c , ..., z ], but without having to type all 26 such
+ characters literally. """
 
 list=[chr(i) for i in range(97,123)] #instead of passing 97,123 - we can pass ord('a'), ord('z')+1
 print(list)
 
-#20 Python’s random module includes a function shuffle(data) that accepts a
-#list of elements and randomly reorders the elements so that each possible
-#order occurs with equal probability. The random module includes a
-#more basic function randint(a, b) that returns a uniformly random integer
-#from a to b (including both endpoints). Using only the randint function,
-#implement your own version of the shuffle function.
+""" 20 Python’s random module includes a function shuffle(data) that accepts a
+list of elements and randomly reorders the elements so that each possible
+order occurs with equal probability. The random module includes a
+more basic function randint(a, b) that returns a uniformly random integer
+from a to b (including both endpoints). Using only the randint function,
+implement your own version of the shuffle function. """
 
 
 def myShuffle(data):
@@ -138,9 +138,9 @@ print(myShuffle([1,2,3]))
 
 
 
-#21 Write a Python program that repeatedly reads lines from standard input
-#until an EOFError is raised, and then outputs those lines in reverse order
-#(a user can indicate end of input by typing ctrl-D).
+"""21 Write a Python program that repeatedly reads lines from standard input
+until an EOFError is raised, and then outputs those lines in reverse order
+(a user can indicate end of input by typing ctrl-D)."""
 
 newList = []
 print("ENTER LINES. END OF FILE WITH CTRL+D")
@@ -154,9 +154,9 @@ except EOFError:
         print(i)
 
 
-#22 Write a short Python program that takes two arrays a and b of length n
-#storing int values, and returns the dot product of a and b. That is, it returns
-#an array c of length n such that c[i] = a[i] · b[i], for i = 0, . . . ,n−1.
+"""22 Write a short Python program that takes two arrays a and b of length n
+storing int values, and returns the dot product of a and b. That is, it returns
+an array c of length n such that c[i] = a[i] · b[i], for i = 0, . . . ,n−1."""
 
 
 def dot_product(a,b):
@@ -169,11 +169,11 @@ a=[1,2,3,4]
 b=[5,6,7,8]
 print(dot_product(a,b))
 
-#C-1.23 Give an example of a Python code fragment that attempts to write an element
-#to a list based on an index that may be out of bounds. If that index
-#is out of bounds, the program should catch the exception that results, and
-#print the following error message:
-#“Don’t try buffer overflow attacks in Python!”
+"""C-1.23 Give an example of a Python code fragment that attempts to write an element
+to a list based on an index that may be out of bounds. If that index
+is out of bounds, the program should catch the exception that results, and
+print the following error message:
+“Don’t try buffer overflow attacks in Python!” """
 
 
 try:
@@ -184,8 +184,8 @@ except IndexError:
     print('"Don’t try buffer overflow attacks in Python!"')
 
 
-#C-1.24 Write a short Python function that counts the number of vowels in a given
-#character string.
+"""C-1.24 Write a short Python function that counts the number of vowels in a given
+character string."""
 
 
 def count_vowels(input):
@@ -200,10 +200,10 @@ def count_vowels(input):
 print(count_vowels("standard"))
 
 
-#C-1.25 Write a short Python function that takes a string s, representing a sentence,
-#and returns a copy of the string with all punctuation removed. For example,
-#if given the string "Let s try, Mike.", this function would return
-#"Lets try Mike".
+"""C-1.25 Write a short Python function that takes a string s, representing a sentence,
+and returns a copy of the string with all punctuation removed. For example,
+if given the string "Let s try, Mike.", this function would return
+"Lets try Mike"."""
 
 
 def remove_punctuation(string):
@@ -217,9 +217,9 @@ def remove_punctuation(string):
 print(remove_punctuation("Let s try, Mike."))
 
 
-#C-1.26 Write a short program that takes as input three integers, a, b, and c, from
-#the console and determines if they can be used in a correct arithmetic
-#formula (in the given order), like “a+b = c,” “a = b−c,” or “a ∗ b = c.”
+"""C-1.26 Write a short program that takes as input three integers, a, b, and c, from
+the console and determines if they can be used in a correct arithmetic
+formula (in the given order), like “a+b = c,” “a = b−c,” or “a ∗ b = c.”"""
 
 str = input("Enter three integers , seperated").split(",")
 a,b,c = (int(i) for i in str)
@@ -227,11 +227,11 @@ print("{} + {} = {} ?".format(a, b, c), a + b == c)
 print("{} = {} - {} ?".format(a, b, c), a == b - c)
 print("{} = {} * {} ?".format(a, b, c), a == b * c)
 
-#27 C-1.27 In Section 1.8, we provided three different implementations of a generator
-#that computes factors of a given integer. The third of those implementations,
-#from page 41, was the most efficient, but we noted that it did not
-#yield the factors in increasing order. Modify the generator so that it reports
-#factors in increasing order, while maintaining its general performance advantages.
+"""27 C-1.27 In Section 1.8, we provided three different implementations of a generator
+that computes factors of a given integer. The third of those implementations,
+from page 41, was the most efficient, but we noted that it did not
+yield the factors in increasing order. Modify the generator so that it reports
+factors in increasing order, while maintaining its general performance advantages."""
 
 
 def factors(n): # generator that computes factors

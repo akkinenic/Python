@@ -1,5 +1,5 @@
-#29 P-1.29 Write a Python program that outputs all possible strings formed by using
-#the characters c , a , t , d , o , and g exactly once.
+"""29 P-1.29 Write a Python program that outputs all possible strings formed by using
+#the characters c , a , t , d , o , and g exactly once."""
 
 #method 1
 
@@ -45,3 +45,10 @@ def permutations(word):
 
 
 print(permutations( "catdog" ))
+
+"""
+P-1.30 Write a Python program that can take a positive integer greater than 2 as
+input and write out the number of times one must repeatedly divide this
+number by 2 before getting a value less than 2.
+"""
+
