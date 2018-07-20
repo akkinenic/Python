@@ -216,3 +216,37 @@ def remove_punctuation(string):
 
 print(remove_punctuation("Let s try, Mike."))
 
+
+#C-1.26 Write a short program that takes as input three integers, a, b, and c, from
+#the console and determines if they can be used in a correct arithmetic
+#formula (in the given order), like “a+b = c,” “a = b−c,” or “a ∗ b = c.”
+
+str = input("Enter three integers , seperated").split(",")
+a,b,c = (int(i) for i in str)
+print("{} + {} = {} ?".format(a, b, c), a + b == c)
+print("{} = {} - {} ?".format(a, b, c), a == b - c)
+print("{} = {} * {} ?".format(a, b, c), a == b * c)
+
+#27 C-1.27 In Section 1.8, we provided three different implementations of a generator
+#that computes factors of a given integer. The third of those implementations,
+#from page 41, was the most efficient, but we noted that it did not
+#yield the factors in increasing order. Modify the generator so that it reports
+#factors in increasing order, while maintaining its general performance advantages.
+
+
+def factors(n): # generator that computes factors
+    k = 1
+    result = []
+    while k*k < n: # while k < sqrt(n)
+        if n % k == 0:
+            yield k
+            result.append(n // k)
+        k += 1
+    if k*k == n: # special case if n is perfect square
+        yield k
+    result.reverse()
+    for i in result:
+        yield i
+
+
+print(list(factors(100)))
