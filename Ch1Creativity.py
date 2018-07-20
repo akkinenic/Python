@@ -46,7 +46,67 @@ def distinctNums(data):
             newList.append(data[i])
     return True if len(newList) == len(data) else False
 
+
 print(distinctNums([1,1,2,3,5,6]))
 
 
+def is_distinct(data):
+    list = len(data)
+    set = len(set(data)) #set actually consists of distinct objects
+    return True if list == set else False
+
+
+#16 1.16 In our implementation of the scale function (page 25), the body of the loop
+#executes the command data[j] = factor. We have discussed that numeric
+#types are immutable, and that use of the = operator in this context causes
+#the creation of a new instance (not the mutation of an existing instance).
+#How is it still possible, then, that our implementation of scale changes the
+#actual parameter sent by the caller?
+
+#def scale(data, factor):
+#for j in range(len(data)):
+#data[j] = factor
+
+
+#Answer - The data is the formal parameter that is just an alias to the actual list.
+#Hence, when we make scale changes, the actual list value gets changed making our scale function work properly.
+
+
+#17 Had we implemented the scale function (page 25) as follows, does it work
+#properly?
+#def scale(data, factor):
+#for val in data:
+#val = factor
+#Explain why or why not.
+
+
+#Answer - It will not work properly. This is because val is not an alias to the actual data value.
+#This assignment simply creates a new val object
+
+
+#18 Demonstrate how to use Python’s list comprehension syntax to produce
+# the list [0, 2, 6, 12, 20, 30, 42, 56, 72, 90].
+
+list = [i*(i+1) for i in range(10)]
+
+print(list)
+
+
+#Hard Way that will not give points
+
+
+def compute():
+    newlist=[]
+    val = 0
+    for i in range(10):
+        if(i<2):
+            newlist.append(2*i)
+            val = 2*i
+        else:
+            val = val + 2 * i
+            newlist.append(val)
+    return newlist
+
+
+print(compute())
 
