@@ -101,3 +101,64 @@ def make_change(charged,given):
 
 
 make_change(2,103.5)
+
+
+"""
+P-1.32 Write a Python program that can simulate a simple calculator, using the
+console as the exclusive input and output device. That is, each input to the
+calculator, be it a number, like 12.34 or 1034, or an operator, like + or =,
+can be done on a separate line. After each such input, you should output
+to the Python console what would be displayed on your calculator.
+"""
+
+
+def calculator():
+    inp1 = input("Enter first input\n")
+    inp2 = input("Enter second input\n")
+
+    op = input("Enter Operator\n")
+
+    if op == "+":
+        print(inp1+"+"+inp2+"=")
+        print(inp1+ inp2)
+    elif op == "-":
+        print(inp1+"-"+inp2+"=")
+        print(inp1 - inp2)
+
+    elif op == "*":
+        print(inp1+"*"+inp2+"=")
+        print(inp1 * inp2)
+    else:
+        print("Invalid Entry")
+
+
+#calculator()
+
+"""
+P-1.33 Write a Python program that simulates a handheld calculator. Your program
+should process input from the Python console representing buttons
+that are “pushed,” and then output the contents of the screen after each operation
+is performed. Minimally, your calculator should be able to process
+the basic arithmetic operations and a reset/clear operation."""
+
+#DID NOT GET A CHANCE TO IMPLEMENT
+
+"""
+P-1.34 A common punishment for school children is to write out a sentence multiple
+times. Write a Python stand-alone program that will write out the
+following sentence one hundred times: “I will never spam my friends
+again.” Your program should number each of the sentences and it should
+make eight different random-looking typos.
+"""
+
+def punishment():
+    content = {}
+    for i in range(1,101):
+        content[ i ] = "I will never spam my friends again."
+    from random import randrange
+    for i in range(1,9):
+        content[randrange(1,100)] = "I got a  typo"
+    from pprint import pprint
+    pprint(content)
+
+punishment()
