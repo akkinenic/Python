@@ -99,6 +99,7 @@ class CreditCard:
             raise ValueError( 'amount cannot be negative')
         self.balance -=amount
 
+
 """
 R-2.6 If the parameter to the make payment method of the CreditCard class
 were a negative number, that would have the effect of raising the balance
@@ -145,8 +146,8 @@ for c in range(3):
 
 while wallet[c].get_balance() > 100:
     wallet[c].make_payment(100)
-    print( "New balance = ", wallet[c].get_balance())
-    print( )
+   # print( "New balance = ", wallet[c].get_balance())
+   # print( )
 
 
 """
@@ -159,7 +160,7 @@ def sub(self, other):
     if len(self) != len(other): # relies on len method
         raise ValueError( "dimensions must agree ")
         #result = Vector(len(self)) # start with vector of zeros
-    for j in range(len(self)):
+    #for j in range(len(self)):
         #result[j] = self[j] - other[j]
         #return result
 
@@ -176,3 +177,30 @@ are all the negated values of the respective coordinates of v.
     # for j in range(len(self)):
     #     result[j] = ~self[j]
     #     return result
+
+"""
+R-2.11 In Section 2.3.3, we note that our Vector class supports a syntax such as
+v = u + [5, 3, 10, −2, 1], in which the sum of a vector and list returns
+a new vector. However, the syntax v = [5, 3, 10, −2, 1] + u is illegal.
+Explain how the Vector class definition can be revised so that this syntax
+generates a new vector."""
+
+
+#PLEASE REFER VECTOR.py
+
+"""
+R-2.12 Implement the mul method for the Vector class of Section 2.3.3, so
+that the expression v 3 returns a new vector with coordinates that are 3
+times the respective coordinates of v.
+"""
+
+#PLEASE REFER VECTOR.py
+
+
+"""
+R-2.13 Exercise R-2.12 asks for an implementation of mul , for the Vector
+class of Section 2.3.3, to provide support for the syntax v 3. Implement
+the rmul method, to provide additional support for syntax 3 v."""
+
+
+#PLEASE REFER VECTOR.py
