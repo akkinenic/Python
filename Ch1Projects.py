@@ -27,6 +27,7 @@ def permute(str):
 
 #method 2
 
+
 def permutations(word):
     if len( word ) == 1:
         return [ word ]
@@ -67,3 +68,36 @@ def count_divby2(val):
     return count
 
 print(count_divby2(9))
+
+"""
+P-1.31 Write a Python program that can “make change.” Your program should
+take two numbers as input, one that is a monetary amount charged and the
+other that is a monetary amount given. It should then return the number
+of each kind of bill and coin to give back as change for the difference
+between the amount given and the amount charged. The values assigned
+to the bills and coins can be based on the monetary system of any current
+or former government. Try to design your program so that it returns as
+few bills and coins as possible.
+"""
+
+
+def make_change(charged,given):
+    denominations = [.01,.05,.1,.25,1,5,10,20,50,100]
+    return_money = given-charged
+    a=b=0
+    isBill=False
+    for i in range(len(denominations)):
+        if a > 0:
+            if isBill:
+                print( denominations[ -i ], "$ bills delivered", int(a) )
+            else:
+                print( denominations[ -i ], " coins delivered", int(a) )
+        if return_money > 0:
+            isBill = True if return_money >=1 else False
+            a,b = divmod(return_money,denominations[-(i+1)])
+            return_money = b
+        else:
+            break
+
+
+make_change(2,103.5)
