@@ -204,3 +204,65 @@ the rmul method, to provide additional support for syntax 3 v."""
 
 
 #PLEASE REFER VECTOR.py
+
+
+"""
+R-2.14 Implement the mul method for the Vector class of Section 2.3.3, so
+that the expression u v returns a scalar that represents the dot product of
+the vectors, that is, Σdi
+=1 ui · vi."""
+
+#PLEASE REFER VECTOR.py
+
+"""
+R-2.15 The Vector class of Section 2.3.3 provides a constructor that takes an integer
+d, and produces a d-dimensional vector with all coordinates equal to
+0. Another convenient form for creating a new vector would be to send the
+constructor a parameter that is some iterable type representing a sequence
+of numbers, and to create a vector with dimension equal to the length of
+that sequence and coordinates equal to the sequence values. For example,
+Vector([4, 7, 5]) would produce a three-dimensional vector with coordinates
+<4, 7, 5>. Modify the constructor so that either of these forms is
+acceptable; that is, if a single integer is sent, it produces a vector of that
+dimension with all zeros, but if a sequence of numbers is provided, it produces
+a vector with coordinates based on that sequence."""
+
+#PLEASE REFER VECTOR.py
+
+"""
+R-2.18 Give a short fragment of Python code that uses the progression classes
+from Section 2.4.2 to find the 8th value of a Fibonacci progression that
+starts with 2 and 2 as its first two values."""
+
+class Progression:
+   def init (self, start=0):
+       self.current = start
+
+   def advance(self):
+       self. current += 1
+
+   def next (self):
+     if self. current is None: # our convention to end a progression
+         raise StopIteration()
+     else:
+         answer = self. current # record current value to return
+         self. advance( ) # advance to prepare for next time
+     return answer # return the answer
+
+   def iter (self):
+     return self
+
+   def print_progression(self, n):
+     print( ''.join(str(next(self)) for j in range(n)))
+
+
+class FibonacciProgression(Progression):
+    def init (self, first=0, second=1):
+        super(). init (first) # start progression at first
+        self. prev = second - first # fictitious value preceding the first
+
+    def advance(self):
+        self.prev, self.current = self. current, self. prev + self. current
+
+print( "Fibonacci progression with start values 2 and 2: ")
+FibonacciProgression(2,2).print_progression(8)

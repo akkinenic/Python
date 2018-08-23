@@ -90,6 +90,22 @@ class Vector:
     return self._coords <= other._coords
 
   def __mul__(self, other):
+      if isinstance( other, (int, float) ):
+          result = Vector( len( self ) )  # start with vector of zeros
+          for j in range( len( self ) ):
+              result[ j ] = self[j] * other
+          return result
+      elif isinstance( other, Vector ):
+          if len( self ) != len( other):
+              raise ValueError( 'dimensions must agree' )
+          result = Vector( len( self ) )
+          for j in range( len( self ) ):
+              result[ j ] = self[ j ] * other[ j ]
+          return result
+      else:
+          raise TypeError( 'int or float or vector should be passed' )
+
+  def __rmul__(self, other):
       if not isinstance( other, (int, float) ):
           raise TypeError( 'int or float' )
       result = Vector( len( self ) )  # start with vector of zeros
@@ -119,7 +135,11 @@ if __name__ == '__main__':
   a[1]=2
   c = a*3
   print(c)
+  c=3*a
+  print(c)
 
-  total = 0
-  for entry in v:            # implicit iteration via __len__ and __getitem__
-    total += entry
+  d = Vector(2)
+  d[0]=8
+  d[1]=9
+  d=c*d
+  print(d)
